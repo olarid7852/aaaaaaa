@@ -1,0 +1,15 @@
+<div style="display: flex;">
+  <div style="width: 20vw; background-color: #00000033; min-height: 100vh;">
+    <div *ngFor="let group of groups" :key="group.name">
+      <div (click)="selectGroup(group)" [ngClass]="{active: selectedGroup === group}">
+        {{group.name}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedGroup">
+    <div *ngFor="let role of selectedGroup.roles" :key="role" style="padding: 5px; margin: 2px; display: flex;">
+      <input type="checkbox"/>
+      <div> {{role}} </div>
+    </div>
+  </div>
+</div>
